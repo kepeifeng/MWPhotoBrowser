@@ -30,6 +30,7 @@ static const CGFloat labelPadding = 10;
         self.tintColor = nil;
         self.barTintColor = nil;
         self.barStyle = UIBarStyleBlackTranslucent;
+//        self.translucent = YES;
         [self setBackgroundImage:nil forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;
         [self setupCaption];
@@ -66,5 +67,13 @@ static const CGFloat labelPadding = 10;
     [self addSubview:_label];
 }
 
+-(void)setTintColor:(UIColor *)tintColor{
+    [super setTintColor:tintColor];
+    if (!tintColor) {
+        _label.textColor = [UIColor whiteColor];
+    }else{
+        _label.textColor = tintColor;
+    }
+}
 
 @end
